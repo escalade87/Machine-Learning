@@ -1,0 +1,2 @@
+model_checkpoint_path: "Fashion_MNIST_model"
+all_model_checkpoint_paths: "Fashion_MNIST_model"
