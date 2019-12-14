@@ -355,7 +355,7 @@ generator %>% save_model_hdf5("generator_acgan_fashion_mnist.h5")
 model <- load_model_hdf5("generator_acgan_fashion_mnist.h5")
 
 #code for generate and save image
-generate_and_save_images <- function(model, test_input) {
+generate_and_save_images <- function() {
   noise <- runif(10*latent_size, min = -1, max = 1) %>%
     matrix(nrow = 10, ncol = latent_size)
   
@@ -364,7 +364,7 @@ generate_and_save_images <- function(model, test_input) {
   
   # Get a batch to display
   generated_images <- predict(
-    generator,    
+    model,    
     list(noise, sampled_labels)
   )
   
@@ -378,7 +378,7 @@ generate_and_save_images <- function(model, test_input) {
 }
 
 #for testing the model
-generate_and_save_images(model)
+generate_and_save_images()
 
 
 
